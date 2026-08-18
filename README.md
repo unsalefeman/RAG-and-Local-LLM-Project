@@ -58,3 +58,13 @@ pip install -r requirements.txt
 - Not designed for reliable multi-step mathematical computation — the
   system retrieves explanatory text, but calculations are performed by the
   LLM itself and are not guaranteed to be accurate for complex problems.
+
+## About the source document
+
+This project was tested using *Thomas' Calculus* (Pearson) as the sample
+knowledge base. The PDF is **not included in this repository** due to
+copyright — it is a commercially published textbook, not public domain.
+
+To run this project yourself, place your own PDF or TXT document(s) in the
+`data/` folder. Public-domain sources such as [Project Gutenberg](https://www.gutenberg.org)
+work well for testing.
