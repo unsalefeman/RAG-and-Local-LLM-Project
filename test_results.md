@@ -1,5 +1,10 @@
 # Test Results
 
+## Source document
+Tests below were run against *Thomas' Calculus* (Pearson), used locally for
+educational/testing purposes only. The file itself is not distributed with
+this repository — see README for details.
+
 ## Test 1: Out-of-context question
 **Query:** "who is the president of united states of america"
 **Result:** ✅ Correctly declined — stated the context does not contain this information, did not fabricate an answer.
