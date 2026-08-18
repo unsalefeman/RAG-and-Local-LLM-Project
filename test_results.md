@@ -19,8 +19,37 @@ In summary, Fourier series serve as a powerful tool for decomposing complex peri
 ✅ Correct and well-grounded answer, directly referencing the theorem found in context.
 
 ## Test 3: Out-of-context simple arithmetic
-**Query:** "can you confirm that 10+10 = 1000?"
-**Result:** ⚠️ Model correctly computed 10+10=20 and flagged the false claim, but used outside knowledge (basic arithmetic) rather than strictly relying on context — a known limitation of the current system prompt.
+What is the derivative of f(x) = (2x^13 + 89)(12x^2 - 41)
+Answer:  To find the derivative of the function f(x) = (2x^13 + 89)(12x^2 - 41), we will use the product rule, which states that the derivative of two multiplied functions is the derivative of the first function times the second function plus the first function times the derivative of the second function.
+
+
+Let u = (2x^13 + 89) and v = (12x^2 - 41).
+
+
+First, we find the derivatives of u and v:
+
+u' = d(2x^13)/dx = 26x^12
+
+v' = d(12x^2)/dx = 24x
+
+
+Now, apply the product rule:
+
+f'(x) = u'v + uv'
+
+f'(x) = (26x^12)(12x^2 - 41) + (2x^13 + 89)(24x)
+
+
+Expand and simplify:
+
+f'(x) = 312x^14 - 1066x^12 + 24x(2x^13) + 2184x
+
+f'(x) = 312x^14 - 1066x^12 + 48x^14 + 2184x
+
+f'(x) = 360x^14 - 1066x^12 + 2184x
+
+
+Thus, the derivative of f(x) is f'(x) = 360x^14 - 1066x^12 + 2184x.
 
 
 ## Summary
