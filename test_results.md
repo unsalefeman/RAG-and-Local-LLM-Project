@@ -1,9 +1,7 @@
 # Test Results
 
 ## Source document
-Tests below were run against *Thomas' Calculus* (Pearson), used locally for
-educational/testing purposes only. The file itself is not distributed with
-this repository, see README for details.
+Tests below were run against *Thomas' Calculus* (Pearson), used locally for educational/testing purposes only. The file itself is not distributed with this repository, see README for details.
 
 ## Test 1: Out-of-context question
 **Query:** "Who is the president of united states of america?"
@@ -33,6 +31,6 @@ f'(x) = 312x^14 - 1066x^12 + 24x(2x^13) + 2184x
 f'(x) = 312x^14 - 1066x^12 + 48x^14 + 2184x
 f'(x) = 360x^14 - 1066x^12 + 2184x
 Thus, the derivative of f(x) is f'(x) = 360x^14 - 1066x^12 + 2184x."
-✅ Correct final answer, with a clearly shown step-by-step application of the product rule. This is not a literal example from the textbook, the model applied a rule it had learned during training rather than one explicitly retrieved from context, showing that its correctness on computation tasks stems from pattern-based learned knowledge rather than guaranteed symbolic reasoning.
+❌ Incorrect. The model correctly identified and applied the product rule structure, but made an arithmetic error in the final simplification: it computed (2x^13 + 89)(24x) as 48x^14 + 2184x, when the correct expansion is 48x^14 + 2136x (89 × 24 = 2136, not 2184). This demonstrates that while the model can reproduce the correct method for out-of-context computations, it is not reliable for the underlying arithmetic errors that can appear in a fully confident, well-formatted response with no indication of uncertainty.
 ## Summary
-The evaluation demonstrates that the system correctly abstains from hallucinations when context is completely missing for out-of-domain queries (Test 1) and delivers accurate, fully grounded responses when relevant material is retrieved (Test 2). However, a key limitation was identified: when presented with computational tasks that are out of context, the model fails to decline the prompt. Instead, it relies on its internal parametric knowledge and training patterns to solve the problem rather than adhering to context-only constraints (Test 3).
+The evaluation demonstrates that the system correctly abstains from hallucinations when context is completely missing for out-of-domain queries (Test 1) and delivers accurate, fully grounded responses when relevant material is retrieved (Test 2). A key limitation was identified in Test 3: for computational tasks not covered by the retrieved context, the model does not decline the prompt but instead relies on its own training-derived knowledge to attempt a solution. In this case, the model reproduced the correct method (product rule) but made a silent arithmetic error in the final answer, presenting it with the same confidence as a correct result. This shows that correctness on out-of-context computation is not guaranteed, and errors are not signaled to the user, which is a risk for any application relying on this system for numerical accuracy.
