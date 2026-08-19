@@ -9,9 +9,7 @@ _chat_client = None
 def init_chat_client():
     global _chat_model, _chat_client
 
-    manager = (
-        FoundryLocalManager.instance
-    )  # already initialized, do not re-initialize
+    manager = (FoundryLocalManager.instance) 
 
     _chat_model = manager.catalog.get_model("phi-3.5-mini")
     _chat_model.download(lambda p: None)
