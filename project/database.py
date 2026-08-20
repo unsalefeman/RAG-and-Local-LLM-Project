@@ -1,9 +1,7 @@
 import sqlite3
 import json
 
-
 DB_PATH = "rag.db"
-
 
 def init_db():
     conn = sqlite3.connect(DB_PATH)
@@ -18,7 +16,6 @@ def init_db():
     conn.commit()
     conn.close()
 
-
 def insert_document(content, embedding):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -28,7 +25,6 @@ def insert_document(content, embedding):
     )
     conn.commit()
     conn.close()
-
 
 def get_all_documents():
     conn = sqlite3.connect(DB_PATH)
