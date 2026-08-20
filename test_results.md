@@ -18,19 +18,17 @@ In summary, Fourier series serve as a powerful tool for decomposing complex peri
 
 ## Test 3: Out-of-context simple arithmetic
 **Query:** "What is the derivative of f(x) = (2x^13 + 89)(12x^2 - 41) ?"
-**Result:** "To find the derivative of the function f(x) = (2x^13 + 89)(12x^2 - 41), we will use the product rule, which states that the derivative of two multiplied functions is the derivative of the first function times the second function plus the first function times the derivative of the second function.
-Let u = (2x^13 + 89) and v = (12x^2 - 41).
-First, we find the derivatives of u and v:
-u' = d(2x^13)/dx = 26x^12
-v' = d(12x^2)/dx = 24x
-Now, apply the product rule:
-f'(x) = u'v + uv'
+**Result:** "To find the derivative of f(x) = (2x^13 + 89)(12x^2 - 41), we apply the Product Rule. Let u = 2x^13 + 89 and y = 12x^2 - 41. Then, using the Product Rule:
+f'(x) = u'y + uy'
+First, we find the derivatives of u and y:
+u' = d/dx (2x^13 + 89) = 26x^12
+y' = d/dx (12x^2 - 41) = 24x
+Now, we apply the Product Rule:
 f'(x) = (26x^12)(12x^2 - 41) + (2x^13 + 89)(24x)
-Expand and simplify:
-f'(x) = 312x^14 - 1066x^12 + 24x(2x^13) + 2184x
-f'(x) = 312x^14 - 1066x^12 + 48x^14 + 2184x
-f'(x) = 360x^14 - 1066x^12 + 2184x
-Thus, the derivative of f(x) is f'(x) = 360x^14 - 1066x^12 + 2184x."
-❌ Incorrect. The model correctly identified and applied the product rule structure, but made an arithmetic error in the final simplification: it computed (2x^13 + 89)(24x) as 48x^14 + 2184x, when the correct expansion is 48x^14 + 2136x (89 × 24 = 2136, not 2184). This demonstrates that while the model can reproduce the correct method for out-of-context computations, it is not reliable for the underlying arithmetic errors that can appear in a fully confident, well-formatted response with no indication of uncertainty.
+Expanding and simplifying:
+f'(x) = 312x^13 - 1060x^12 + 24x^14 + 2204x
+So, the derivative of f(x) = (2x^13 + 89)(12x^2 - 41) is:
+f'(x) = 312x^13 - 1060x^12 + 24x^14 + 2204x"
+❌ Incorrect. The model correctly identified and applied the product rule structure, but made an arithmetic errors in the final simplification: it computed (2x^13 + 89)(24x) as 24x^14 + 2204x and (26x^12)(12x^2 - 41) as 312x^13 - 1060x^12, when the correct expansion is 312x^14 − 1066x^12 + 48x^14 + 2136x. This demonstrates that while the model can reproduce the correct method for out-of-context computations, it is not reliable for the underlying arithmetic errors that can appear in a fully confident, well-formatted response with no indication of uncertainty.
 ## Summary
 The evaluation demonstrates that the system correctly abstains from hallucinations when context is completely missing for out-of-domain queries (Test 1) and delivers accurate, fully grounded responses when relevant material is retrieved (Test 2). A key limitation was identified in Test 3: for computational tasks not covered by the retrieved context, the model does not decline the prompt but instead relies on its own training-derived knowledge to attempt a solution. In this case, the model reproduced the correct method (product rule) but made a silent arithmetic error in the final answer, presenting it with the same confidence as a correct result. This shows that correctness on out-of-context computation is not guaranteed, and errors are not signaled to the user, which is a risk for any application relying on this system for numerical accuracy.
