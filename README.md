@@ -51,8 +51,6 @@ pip install -r requirements.txt
 
 ## Known limitations
 
-- Retrieval occasionally returns semantically similar but topically
-  different content for ambiguous queries.
 - The model may fall back on general knowledge for very simple reasoning
   tasks despite prompt instructions.
 - Not designed for reliable multi-step mathematical computation, the
